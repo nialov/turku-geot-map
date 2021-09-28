@@ -21,6 +21,7 @@ def make(c):
             )
         )
     )
+    print("Resizing images")
     c.run(
         " ".join(
             (
@@ -30,20 +31,11 @@ def make(c):
         )
     )
 
-    tracerepository_turku_traces_path = Path(
-        "~/nikke-projects/geology_projects/tracerepository"
-        "/tracerepository_data/turku/traces"
-    ).expanduser()
     extra_dataset_paths = [
-        Path(
-            tracerepository_turku_traces_path
-            / "infinity/turku_lidar_infinity_geothermal_sites_traces.geojson"
-        ),
-        Path(
-            tracerepository_turku_traces_path
-            / "200000/turku_lidar_lineaments_200k_traces.geojson"
-        ),
+        Path("data/turku_lidar_infinity_geothermal_sites_traces.geojson"),
+        Path("data/turku_lidar_lineaments_200k_traces.geojson"),
     ]
+    print("Creating map")
     c.run(
         " ".join(
             (
